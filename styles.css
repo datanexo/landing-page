@@ -1,0 +1,321 @@
+* {
+  margin: 0;
+  border: 0;
+  padding:0;
+
+}
+
+
+html, body {
+    height:100%;
+    width:100%;
+    color:black;
+    font-family: 'Inter', sans-serif;
+    font-size: 1vmax;
+    overflow-x: hidden;
+}
+
+
+section {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+#left {
+
+  padding: 8em;
+  width: 55vw;
+  flex-direction: column;
+}
+#right {
+
+  flex-direction: column;
+  height:100%;
+
+  width: 45vw;
+#  background-color: hsl(316 90% 90%);
+}
+#chart {
+height:100%;
+width:100%;
+}
+form {
+	display: flex;
+height: 9vh;
+  margin-top: 2em;
+}
+
+input[type=text] {
+#  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 3px solid #ccc;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+}
+input[type=text]:focus {
+  border: 3px solid #555;
+  border-color: hsl(316 70% 19%);
+}
+
+#fname {
+#  width: 45vw;
+  width: 50%;
+  margin-right:2em;
+#  font-size: 1em;
+ border-radius: 15px 3px 3px 3px;
+}
+#lname {
+#  width: 45vw;
+  width: 50%;
+ border-radius: 3px 15px 3px 3px;
+}
+# input::placeholder {
+#	padding-left:1.5em;
+# }
+button {
+	color:white;
+	border-radius: 3px 3px 15px 15px;
+ background-color: hsl(316 30% 9%);
+  width: 100%;
+  height: 6vh;
+  margin-top: 0.5em;
+font-size: 1.5em;
+cursor: pointer;
+}
+
+#first button:hover {
+ background-color: hsl(316 70% 12%);
+}
+#smaletter {
+font-size:0.9em;
+text-align:center;
+margin-top:0.2em;
+  width: 100%;
+font-weight:normal;
+  border: 0;
+  padding:0;
+
+  margin-top: 0.2em;
+
+}
+h1 {
+font-size: 3.5em;
+font-style:italic;
+font-weight:bold;
+  border: 0;
+  padding:0;
+
+#  margin-bottom: 2em;
+
+}
+h2 {
+font-size: 1.6em;
+font-weight:normal;
+  border: 0;
+  padding:0;
+
+  margin-top: 0.5em;
+
+}
+@media screen and (max-width: 500px) {
+    .hide-if-narrow {
+        display: none;
+    }
+}
+
+.hidden {
+  display: none;
+}
+#first {
+# background-color: hsl(196 37% 45%);
+# background-color: hsl(196 37% 98%);
+# background-color: hsl(196 93% 95%);
+# background-color: hsl(196 95% 97%);
+# background-color: hsl(196 95% 98%);
+ background-color: hsl(196 30% 98%);
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+
+}
+#second {
+# background-color: hsl(316 30% 98%);
+ background-color: hsl(316 30% 9%);
+ color: hsl(196 30% 98%);	
+ justify-content: center;
+ align-items: center;
+
+
+ }
+h3 {
+font-size: 3em;
+font-weight:bold;
+  border: 0;
+  padding:1em;
+
+  margin-top: 0.5em;
+
+}
+h4 {
+font-size: 2em;
+# font-style:italic;
+font-weight:bold;
+  border: 0;
+  padding:1em;
+  padding-bottom:0em;
+#  margin-top: 0.5em;
+#  padding-right:0em;
+  background-color:hsl(316 30% 3%);
+  height:100%;
+
+}
+h5 {
+font-size: 1.7em;
+font-style:italic;
+font-weight:bold;
+  padding:0.8em;
+#  padding-top:0;
+# text-decoration: underline hsl(140, 50%, 35%);
+# cursor: pointer;
+# background-color: black;
+
+# border-radius: 3px 15px 3px 3px;
+# border:hsl(316 30% 3%);
+# border-style:solid;
+# border-width: 1px 10px 10px 1px;
+# border: 0;
+}
+#beliefs {
+# border-radius: 3px 15px 3px 3px;
+ border:hsl(316 30% 3%);
+ border-style:solid;
+# border-width: 1px 10px 10px 1px;
+ border-width: 0px 10px 10px 0px;
+ border-radius: 3px 15px 15px 3px;
+ justify-content: center;
+ justify-content: space-around;
+ align-items: center;
+display:flex;
+ margin-bottom:5em;
+ padding:1em;
+ padding-left:0;
+ width:70vw;
+ height:20vh;
+ transition: transform .2s; /* Animation */
+
+}
+#beliefs:hover {
+  transform: scale(1.04); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+#conclusion {
+# border-radius: 3px 15px 3px 3px;
+ border-radius: 3px 15px 15px 3px;
+ border:hsl(316 30% 3%);
+ border-style:solid;
+# border-width: 1px 10px 10px 1px;
+ border-width: 0px 10px 10px 0px;
+ justify-content: center;
+ justify-content: space-around;
+ align-items: center;
+display:flex;
+margin-left:4em;
+margin-right:4em;
+ padding:1em;
+ padding-left:0;
+ width:90vw;
+ height:40vh;
+ transition: transform .2s; /* Animation */
+
+
+}
+#conclusion:hover {
+  transform: scale(1.04); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+li {
+font-size: 1.4em;
+font-weight:normal;
+  border: 0;
+  padding:0.3em;
+
+  margin-top: 0.5em;
+
+}
+ol {
+margin-left:4em;
+}
+ul {
+margin-bottom:2em;
+margin-top:2em;
+}
+ul li::marker {
+    color: hsl(0, 80%, 50%);
+}
+ol li::marker {
+    color: hsl(200, 60%, 40%);
+}
+#more-btn {
+ background-color: hsl(196 30% 98%);
+
+ color:hsl(316 30% 9%);
+
+font-weight:bold;
+  width: 15%;
+}
+#more-btn:hover {
+ background-color: hsl(316 10% 88%);
+}
+p {
+
+  width: 80%;
+font-size: 1.3em;
+font-weight:normal;
+  border: 0;
+  padding:0.2em;
+
+  margin-top: 1em;
+
+}
+
+#third {
+# background-color: hsl(76 30% 98%);
+ background-color: hsl(316 30% 9%);
+ color:hsl(196 30% 98%);
+  padding-top: 5em;
+  padding-left: 5em;
+
+ }
+#lasto {
+  padding-left: em;
+
+
+
+}
+
+@media only screen and (max-width: 500px) {
+
+   body { 
+      font-size: 3.5vw; 
+   }
+   #left {
+
+     padding: 0em;
+
+}
+#second {
+      font-size: 2.2vw; 
+}
+#beliefs {
+ height:20vh;
+ margin-bottom:2em;
+ width:90vw;
+}
+#conclusion {
+
+ height:60vh;
+}
