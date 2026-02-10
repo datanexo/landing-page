@@ -121,22 +121,31 @@ function initChart() {
   document.getElementById("lname")?.addEventListener("focus", runAnimation);
   document.body.addEventListener("click", runAnimation);
 
-  // Trigger animation on scroll only on desktop (smooth). On mobile: no scroll trigger — chart only updates on tap/click to avoid jumpy static changes.
+  const chartCooldownMs = 1100;
+  let lastChartRunAt = 0;
+  const runIfCooldown = () => {
+    const now = Date.now();
+    if (now - lastChartRunAt < chartCooldownMs) return;
+    lastChartRunAt = now;
+    requestAnimationFrame(() => runAnimation());
+  };
+
   const isMobile = () => window.matchMedia("(max-width: 800px)").matches;
-  if (!isMobile()) {
+  if (isMobile()) {
+    // Mobile: start animation as soon as finger touches (touchstart), not on release — feels immediate and smooth
+    document.addEventListener("touchstart", runIfCooldown, { passive: true });
+  } else {
+    // Desktop: start animation after scroll settles
     let scrollEndTimer = null;
-    let lastChartAnimationAt = 0;
     const scrollEndDelayMs = 260;
-    const chartAnimationCooldownMs = 1100;
     function onScrollTrigger() {
       if (scrollEndTimer) clearTimeout(scrollEndTimer);
       scrollEndTimer = setTimeout(() => {
         scrollEndTimer = null;
-        if (!window._runChartAnimation) return;
         const now = Date.now();
-        if (now - lastChartAnimationAt < chartAnimationCooldownMs) return;
-        lastChartAnimationAt = now;
-        requestAnimationFrame(() => window._runChartAnimation());
+        if (now - lastChartRunAt < chartCooldownMs) return;
+        lastChartRunAt = now;
+        requestAnimationFrame(() => runAnimation());
       }, scrollEndDelayMs);
     }
     window.addEventListener("scroll", onScrollTrigger, { passive: true });
