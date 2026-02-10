@@ -115,9 +115,24 @@ function initChart() {
       .attr("d", area);
   };
 
+  window._runChartAnimation = runAnimation;
+
   document.getElementById("fname")?.addEventListener("focus", runAnimation);
   document.getElementById("lname")?.addEventListener("focus", runAnimation);
   document.body.addEventListener("click", runAnimation);
+
+  // Trigger same animation on scroll (throttled: at most once per 900ms while scrolling)
+  let lastScrollRun = 0;
+  const scrollThrottleMs = 900;
+  function onScrollTrigger() {
+    const now = Date.now();
+    if (now - lastScrollRun >= scrollThrottleMs && window._runChartAnimation) {
+      lastScrollRun = now;
+      window._runChartAnimation();
+    }
+  }
+  window.addEventListener("scroll", onScrollTrigger, { passive: true });
+  window.addEventListener("wheel", onScrollTrigger, { passive: true });
 }
 
 

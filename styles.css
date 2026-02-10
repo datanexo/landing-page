@@ -45,6 +45,7 @@ body {
 }
 #lang-btn { background: #eee; color: #000; }
 
+/* Dark/Light mode button: symbol only by default, text on hover (all viewports including desktop) */
 #dark-btn {
   background: #000;
   color: #fff;
@@ -62,17 +63,21 @@ body {
 #dark-btn .dark-btn-text {
   max-width: 0;
   opacity: 0;
+  visibility: hidden;
   overflow: hidden;
   white-space: nowrap;
-  transition: max-width 0.3s ease, opacity 0.25s ease;
+  transition: max-width 0.3s ease, opacity 0.25s ease, visibility 0.2s ease;
 }
-#dark-btn:hover {
+#dark-btn:hover,
+#dark-btn:focus-visible {
   padding-left: 1em;
   padding-right: 1em;
 }
-#dark-btn:hover .dark-btn-text {
+#dark-btn:hover .dark-btn-text,
+#dark-btn:focus-visible .dark-btn-text {
   max-width: 8em;
   opacity: 1;
+  visibility: visible;
 }
 body.dark-mode #dark-btn { background: #fff; color: #000; }
 
@@ -116,6 +121,16 @@ input[type=text] {
   height: 6vh; font-size: 1.2em; margin-top: 0.5em;
   padding: 1em 2.25em;
   box-sizing: border-box;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+  cursor: pointer;
+}
+#first button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+#first button:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* --- CONTENT SECTIONS: Snug fit & Alternating (black cards) --- */
@@ -125,7 +140,7 @@ input[type=text] {
   margin-bottom: 2em;
   background-color: #000;
   color: #fff;
-  
+  border-radius: 24px;
   /* The "Snug" Fix */
   width: fit-content; 
   max-width: 92%; /* Wider cards */
