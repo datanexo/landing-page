@@ -56,6 +56,16 @@ function randomize() {
   return layers;
 }
 
+let chartPaths = null;
+let chartWidth = 0;
+
+function applyRainbow(paths, hueBase) {
+  if (!paths || paths.size() === 0) return;
+  paths.transition()
+    .duration(80)
+    .attr("fill", (d, i) => zRainbow((hueBase + (i / n)) % 1));
+}
+
 function initChart() {
   const chartEl = document.getElementById("chart");
   if (!chartEl) return;
@@ -63,6 +73,7 @@ function initChart() {
   chartEl.innerHTML = '';
   const width = chartEl.clientWidth;
   const height = chartEl.clientHeight;
+  chartWidth = width;
 
   x.range([0, width]);
   y.range([height, 0]);
@@ -80,19 +91,13 @@ function initChart() {
     .attr("fill", (d, i) => palette[i % palette.length])
     .attr("d", area);
 
-  // --- Dynamic Multi-Color Rainbow Hover ---
+  chartPaths = paths;
+
+  // --- Dynamic Multi-Color Rainbow Hover (desktop) ---
   svg.on("mousemove", function(event) {
     const [mouseX] = d3.pointer(event);
-    // Calculate a 'hue offset' based on mouse position (0 to 1)
     const hueBase = mouseX / width;
-
-    paths.transition()
-      .duration(50) // Very fast transition for high responsiveness
-      .attr("fill", (d, i) => {
-        // Each layer (i) gets a slightly different slice of the rainbow
-        // starting from the mouse position hue
-        return zRainbow((hueBase + (i / n)) % 1);
-      });
+    applyRainbow(paths, hueBase);
   });
 
   svg.on("mouseleave", function() {
@@ -114,6 +119,7 @@ function initChart() {
   document.getElementById("lname")?.addEventListener("focus", runAnimation);
   document.body.addEventListener("click", runAnimation);
 }
+
 
 let resizeTimer;
 window.addEventListener("resize", () => {
