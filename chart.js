@@ -119,38 +119,10 @@ function initChart() {
 
   document.getElementById("fname")?.addEventListener("focus", runAnimation);
   document.getElementById("lname")?.addEventListener("focus", runAnimation);
+
+  // Run the full animation only when clicked/tapped anywhere — no scroll, so it won't break on the phone
   document.body.addEventListener("click", runAnimation);
-
-  const chartCooldownMs = 1100;
-  let lastChartRunAt = 0;
-  const runIfCooldown = () => {
-    const now = Date.now();
-    if (now - lastChartRunAt < chartCooldownMs) return;
-    lastChartRunAt = now;
-    requestAnimationFrame(() => runAnimation());
-  };
-
-  const isMobile = () => window.matchMedia("(max-width: 800px)").matches;
-  if (isMobile()) {
-    // Mobile: start animation as soon as finger touches (touchstart), not on release — feels immediate and smooth
-    document.addEventListener("touchstart", runIfCooldown, { passive: true });
-  } else {
-    // Desktop: start animation after scroll settles
-    let scrollEndTimer = null;
-    const scrollEndDelayMs = 260;
-    function onScrollTrigger() {
-      if (scrollEndTimer) clearTimeout(scrollEndTimer);
-      scrollEndTimer = setTimeout(() => {
-        scrollEndTimer = null;
-        const now = Date.now();
-        if (now - lastChartRunAt < chartCooldownMs) return;
-        lastChartRunAt = now;
-        requestAnimationFrame(() => runAnimation());
-      }, scrollEndDelayMs);
-    }
-    window.addEventListener("scroll", onScrollTrigger, { passive: true });
-    window.addEventListener("wheel", onScrollTrigger, { passive: true });
-  }
+  chartEl.style.cursor = "pointer";
 }
 
 
