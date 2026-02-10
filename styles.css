@@ -35,7 +35,7 @@ body {
 }
 
 #logo-link { margin-right: auto; }
-#nav-logo { height: 3.2em; width: auto; display: block; }
+#nav-logo { height: 4.6em; width: auto; display: block; }
 
 #page-controls button {
   padding: 0.6em 1.2em;
@@ -84,18 +84,28 @@ body.dark-mode #dark-btn { background: #fff; color: #000; }
 /* --- Hero Section --- */
 #first {
   height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
+  justify-content: flex-end;
   padding-top: 4em;
+  box-sizing: border-box;
 }
 #left {
-  padding: 2em 8em;
+  padding: 3em 8em;
   width: 55vw;
+  max-width: 52em;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   box-sizing: border-box;
+}
+#left h1 {
+  max-width: 100%;
+  margin-bottom: 1.15em;
+  line-height: 1.2;
 }
 #right {
   width: 45vw;
@@ -103,8 +113,9 @@ body.dark-mode #dark-btn { background: #fff; color: #000; }
   margin: 0;
   padding: 0;
   min-width: 0;
+  align-self: stretch;
 }
-#chart { height: 100%; width: 100%; margin: 0; padding: 0; }
+#chart { height: 100%; width: 100%; margin: 0; padding: 0; display: block; }
 
 /* --- Forms --- */
 form { display: flex; height: 8vh; margin-top: 2em; }
@@ -123,6 +134,10 @@ input[type=text] {
   box-sizing: border-box;
   transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
   cursor: pointer;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 #first button:hover {
   transform: translateY(-2px);
@@ -325,5 +340,5 @@ body.dark-mode #contact { border-top-color: #333; }
   .footer-spacer { min-height: 2rem; }
 
   #page-controls { padding: 0.6em 1em; }
-  #nav-logo { height: 2.6em; }
+  #nav-logo { height: 3.6em; }
 }
