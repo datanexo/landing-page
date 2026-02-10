@@ -121,26 +121,27 @@ function initChart() {
   document.getElementById("lname")?.addEventListener("focus", runAnimation);
   document.body.addEventListener("click", runAnimation);
 
-  // Trigger animation after scroll settles; cooldown so one animation completes before the next can start
-  let scrollEndTimer = null;
-  let lastChartAnimationAt = 0;
-  const scrollEndDelayMs = 260;
-  const chartAnimationCooldownMs = 1100; // longer than transition duration (1000ms)
-  function onScrollTrigger() {
-    if (scrollEndTimer) clearTimeout(scrollEndTimer);
-    scrollEndTimer = setTimeout(() => {
-      scrollEndTimer = null;
-      if (!window._runChartAnimation) return;
-      const now = Date.now();
-      if (now - lastChartAnimationAt < chartAnimationCooldownMs) return; // let current animation finish
-      lastChartAnimationAt = now;
-      requestAnimationFrame(() => {
-        window._runChartAnimation();
-      });
-    }, scrollEndDelayMs);
+  // Trigger animation on scroll only on desktop (smooth). On mobile: no scroll trigger — chart only updates on tap/click to avoid jumpy static changes.
+  const isMobile = () => window.matchMedia("(max-width: 800px)").matches;
+  if (!isMobile()) {
+    let scrollEndTimer = null;
+    let lastChartAnimationAt = 0;
+    const scrollEndDelayMs = 260;
+    const chartAnimationCooldownMs = 1100;
+    function onScrollTrigger() {
+      if (scrollEndTimer) clearTimeout(scrollEndTimer);
+      scrollEndTimer = setTimeout(() => {
+        scrollEndTimer = null;
+        if (!window._runChartAnimation) return;
+        const now = Date.now();
+        if (now - lastChartAnimationAt < chartAnimationCooldownMs) return;
+        lastChartAnimationAt = now;
+        requestAnimationFrame(() => window._runChartAnimation());
+      }, scrollEndDelayMs);
+    }
+    window.addEventListener("scroll", onScrollTrigger, { passive: true });
+    window.addEventListener("wheel", onScrollTrigger, { passive: true });
   }
-  window.addEventListener("scroll", onScrollTrigger, { passive: true });
-  window.addEventListener("wheel", onScrollTrigger, { passive: true });
 }
 
 
