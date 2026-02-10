@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<!--
+graph acknowledgement
+other pages
+gpl lic
+-->
+<html>
+<head>
+<title>Datanexo</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="chart.js" defer></script>
+</head>
+<body>
+
+<nav id="page-controls">
+  <a href="#" id="logo-link" aria-label="Datanexo home"><img src="logo.svg" alt="Datanexo" id="nav-logo" /></a>
+  <button type="button" id="lang-btn" title="Switch language">EN / ES</button>
+  <button type="button" id="dark-btn" title="Dark mode">Dark mode</button>
+</nav>
+
+<section id="first">
+<div id="left">
+	<h1 data-i18n="hero_title">We help you develop the digital solutions yourself </h1>
+<h2 data-i18n="hero_subtitle">you've got the questions, we'll shape the answers </h2>
+<form>
+  <input type="text" id="fname" name="fname" placeholder="Name" data-i18n-placeholder="placeholder_name">
+  <input type="text" id="lname" name="lname" placeholder="Email" data-i18n-placeholder="placeholder_email">
+</form>
+<button id="hover-target" data-i18n="cta_btn">Let's have a meeting!  </button>
+<p id="smaletter" data-i18n="privacy"> We'll never share your info with anyone. </p>
+</div>
+<div id="right" class ="hide-if-narrow"> 
+
+
+<!--<img src="4UcoGB01.svg" width="100%" height="100%" />-->
+
+<div id="chart" class></div>
+</div>
+</section>
+<section id="who" class="scroll-reveal content-section">
+  <h2 class="section-title" data-i18n="who_title">Who are we and who do we work for?</h2>
+  <p data-i18n="who_p1">Datanexo is a data-driven company focused on training and developing tailored solutions for organizations interested in acquiring knowledge and using artificial intelligence.</p>
+  <p data-i18n="who_p2">We work for companies that want to transform their data into value, improve operational efficiency and optimize resources through practical and applicable solutions.</p>
+</section>
+<section id="how" class="scroll-reveal content-section">
+  <h2 class="section-title" data-i18n="how_title">How do we do it?</h2>
+  <p class="section-intro" data-i18n="how_intro">We accompany companies from the initial idea to production implementation with an End-to-End approach:</p>
+  <ul class="section-list">
+    <li data-i18n="how_1">Strategic data consulting.</li>
+    <li data-i18n="how_2">Data engineering, integration, organization and automation.</li>
+    <li data-i18n="how_3">Data science applied to real business problems.</li>
+    <li data-i18n="how_4">Machine learning and applied artificial intelligence.</li>
+    <li data-i18n="how_5">Personalized educational calls for teams, leaders and individuals.</li>
+    <li data-i18n="how_6">Process and reporting automation.</li>
+  </ul>
+</section>
+<section id="focus" class="scroll-reveal content-section">
+  <h2 class="section-title" data-i18n="focus_title">What do we focus on?</h2>
+  <p data-i18n="focus_p1">Training, automation and solving real processes in the company.</p>
+  <p data-i18n="focus_p2">Data and applied AI training.</p>
+  <p data-i18n="focus_p3">Group and individual consulting sessions, focused on concrete objectives of the organization.</p>
+</section>
+<section id="different" class="scroll-reveal content-section">
+  <h2 class="section-title" data-i18n="diff_title">What differentiates us?</h2>
+  <ul class="section-list">
+    <li data-i18n="diff_1">We train the team while we develop AI solutions applied to their own processes and data.</li>
+    <li data-i18n="diff_2">We train practically on real business data.</li>
+    <li data-i18n="diff_3">We transfer knowledge so the team can maintain, scale and evolve what was built.</li>
+  </ul>
+</section>
+<footer id="contact" class="scroll-reveal">
+  <h2 class="footer-title" data-i18n="contact_title">Contact</h2>
+  <div class="contact-row">
+    <a href="https://datanexo.dev" target="_blank" rel="noopener" class="contact-item">
+      <span class="contact-icon" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      </span>
+      <span data-i18n="contact_domain">datanexo.dev</span>
+    </a>
+    <a href="tel:+5491140756969" class="contact-item">
+      <span class="contact-icon" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </span>
+      <span data-i18n="contact_phone">(+54 9) 11 4075-6969</span>
+    </a>
+    <a href="https://www.linkedin.com/company/datanexo" target="_blank" rel="noopener" class="contact-item">
+      <span class="contact-icon contact-icon-linkedin" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </span>
+      <span data-i18n="contact_brand">Datanexo</span>
+    </a>
+    <a href="mailto:santiago.otero@datanexo.dev" class="contact-item">
+      <span class="contact-icon" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </span>
+      <span class="footer-email">santiago.otero@datanexo.dev</span>
+    </a>
+  </div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
