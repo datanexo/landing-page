@@ -121,14 +121,19 @@ function initChart() {
   document.getElementById("lname")?.addEventListener("focus", runAnimation);
   document.body.addEventListener("click", runAnimation);
 
-  // Trigger animation after scroll stops (debounce) so scroll stays smooth, then one fluid animation
+  // Trigger animation after scroll settles; cooldown so one animation completes before the next can start
   let scrollEndTimer = null;
-  const scrollEndDelayMs = 280;
+  let lastChartAnimationAt = 0;
+  const scrollEndDelayMs = 260;
+  const chartAnimationCooldownMs = 1100; // longer than transition duration (1000ms)
   function onScrollTrigger() {
     if (scrollEndTimer) clearTimeout(scrollEndTimer);
     scrollEndTimer = setTimeout(() => {
       scrollEndTimer = null;
       if (!window._runChartAnimation) return;
+      const now = Date.now();
+      if (now - lastChartAnimationAt < chartAnimationCooldownMs) return; // let current animation finish
+      lastChartAnimationAt = now;
       requestAnimationFrame(() => {
         window._runChartAnimation();
       });
