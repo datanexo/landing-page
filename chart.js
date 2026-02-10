@@ -121,15 +121,18 @@ function initChart() {
   document.getElementById("lname")?.addEventListener("focus", runAnimation);
   document.body.addEventListener("click", runAnimation);
 
-  // Trigger same animation on scroll (throttled: at most once per 900ms while scrolling)
-  let lastScrollRun = 0;
-  const scrollThrottleMs = 900;
+  // Trigger animation after scroll stops (debounce) so scroll stays smooth, then one fluid animation
+  let scrollEndTimer = null;
+  const scrollEndDelayMs = 280;
   function onScrollTrigger() {
-    const now = Date.now();
-    if (now - lastScrollRun >= scrollThrottleMs && window._runChartAnimation) {
-      lastScrollRun = now;
-      window._runChartAnimation();
-    }
+    if (scrollEndTimer) clearTimeout(scrollEndTimer);
+    scrollEndTimer = setTimeout(() => {
+      scrollEndTimer = null;
+      if (!window._runChartAnimation) return;
+      requestAnimationFrame(() => {
+        window._runChartAnimation();
+      });
+    }, scrollEndDelayMs);
   }
   window.addEventListener("scroll", onScrollTrigger, { passive: true });
   window.addEventListener("wheel", onScrollTrigger, { passive: true });
