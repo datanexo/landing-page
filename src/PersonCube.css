@@ -19,7 +19,7 @@
 }
 
 .person-cube-caption {
-  margin-top: 1.6em;
+  margin-top: 4em;
   text-align: center;
   opacity: 0;
   transform: translateY(14px);
@@ -28,20 +28,22 @@
 }
 
 .person-cube-caption-name {
-  font-size: 1.1em;
+  font-size: 1.2em;
   font-weight: 600;
-  margin: 0 0 0.25em;
+  margin: 0 0 0.3em;
   line-height: 1.25;
   letter-spacing: 0.02em;
   color: inherit;
+  white-space: nowrap;
 }
 
 .person-cube-caption-role {
-  font-size: 0.85em;
+  font-size: 0.95em;
   opacity: 0.9;
   margin: 0;
   letter-spacing: 0.01em;
   color: inherit;
+  white-space: nowrap;
 }
 
 @keyframes caption-in {
@@ -153,7 +155,7 @@
     --cube-half: 70px;
   }
   .person-cube-item { max-width: 140px; }
-  .person-cube-caption { margin-top: 1.25em; }
-  .person-cube-caption-name { font-size: 0.95em; }
-  .person-cube-caption-role { font-size: 0.75em; }
+  .person-cube-caption { margin-top: 3em; }
+  .person-cube-caption-name { font-size: 1.05em; }
+  .person-cube-caption-role { font-size: 0.85em; }
 }

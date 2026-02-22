@@ -42,7 +42,7 @@ body {
   padding: 0.6em 1.2em;
   border-radius: 4px;
   font-weight: 600;
-  font-size: inherit;
+  font-size: 1rem;
   line-height: 1.2;
   text-decoration: none;
   color: #000;
@@ -50,6 +50,7 @@ body {
   transition: background 0.2s, color 0.2s;
   display: inline-flex;
   align-items: center;
+  min-height: 2.5em;
   box-sizing: border-box;
 }
 .nav-about:hover { background: #ddd; }
@@ -63,6 +64,9 @@ body.dark-mode .nav-about-active { background: #333; color: #fff; }
   border-radius: 4px;
   cursor: pointer;
   font-weight: 600;
+  font-size: 1rem;
+  min-height: 2.5em;
+  box-sizing: border-box;
 }
 #lang-btn { background: #eee; color: #000; }
 
