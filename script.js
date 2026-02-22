@@ -59,7 +59,14 @@ const translations = {
   contact_phone: { en: "(+54 9) 11 4075-6969", es: "(+54 9) 11 4075-6969" },
   contact_brand: { en: "Datanexo", es: "Datanexo" },
   btn_dark: { en: "Dark mode", es: "Modo oscuro" },
-  btn_light: { en: "Light mode", es: "Modo claro" }
+  btn_light: { en: "Light mode", es: "Modo claro" },
+  nav_about: { en: "About Us", es: "Nosotros" },
+  about_heading: { en: "Our Co-Founders", es: "Nuestros Co-Fundadores" },
+  role_kevin: { en: "Data & IA Engineer", es: "Data & IA Engineer" },
+  role_franco: { en: "AI Engineer & Robotics", es: "AI Engineer & Robotics" },
+  role_ezequiel: { en: "Backend & Infraestructure", es: "Backend & Infraestructura" },
+  role_agustin: { en: "Machine Learning & Analytics", es: "Machine Learning & Analytics" },
+  role_santiago: { en: "Marketing & Communications", es: "Marketing & Comunicaciones" }
 };
 
 let currentLang = (localStorage.getItem('datanexo-lang') || 'en');
